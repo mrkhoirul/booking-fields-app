@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "1243f35e-bd55-4f41-b381-a4044b504a64",
+		"name": "Booking Lapangan API",
+		"description": "REST API Booking Lapangan (Golang with Fiber + PostgreSQL)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fields (Lapangan)",
+			"item": [
+				{
+					"name": "Create Field (Admin)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjE1NzMzNzUsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOjJ9.xjru46-infWVZl1u6QzPAZB6dWZRjcah2yTncmX8ACs",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Lapangan Futsal A\",\n    \"price_per_hour\": 150000,\n    \"location\": \"Jl. Batununggal No. 45, Bandung\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/fields",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fields",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fields"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fields Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/fields/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fields",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fields (Admin)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjE1NzMzNzUsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOjJ9.xjru46-infWVZl1u6QzPAZB6dWZRjcah2yTncmX8ACs",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lapangan Futsal A\",\r\n    \"price_per_hour\": 125000,\r\n    \"location\": \"Jl. Batununggal No. 45, Bandung\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/fields/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fields",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Fields (Admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjE1NzMzNzUsInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOjJ9.xjru46-infWVZl1u6QzPAZB6dWZRjcah2yTncmX8ACs",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/fields/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fields",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication (Autentikasi)",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Admin\",\n    \"email\": \"admin@example.com\",\n    \"password\": \"123456\",\n    \"role\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjE1NzMzMjAsInJvbGUiOiJ1c2VyIiwidXNlcl9pZCI6MX0.WSKtCYhC37pyv03nQXD79LcNkTKh2i_zxNhuMl5FPU8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"field_id\": 4,\n    \"start_time\": \"2025-10-25T14:00:00Z\",\n    \"end_time\": \"2025-10-25T16:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Bookings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjE1NzMzMjAsInJvbGUiOiJ1c2VyIiwidXNlcl9pZCI6MX0.WSKtCYhC37pyv03nQXD79LcNkTKh2i_zxNhuMl5FPU8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjE1NzMzMjAsInJvbGUiOiJ1c2VyIiwidXNlcl9pZCI6MX0.WSKtCYhC37pyv03nQXD79LcNkTKh2i_zxNhuMl5FPU8"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjE1NzMzMjAsInJvbGUiOiJ1c2VyIiwidXNlcl9pZCI6MX0.WSKtCYhC37pyv03nQXD79LcNkTKh2i_zxNhuMl5FPU8"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"booking_id\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payments"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "ADMIN_TOKEN",
+			"value": ""
+		},
+		{
+			"key": "USER_TOKEN",
+			"value": ""
+		}
+	]
+}

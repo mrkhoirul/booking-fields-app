@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:18
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bookingfields_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      APP_PORT: 8080
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: bookingfields_db
+      JWT_SECRET: "zNVXH9K1ZUb+vGT6hTHz15YIVjSbUXEl88mZdfMlahI="
+      JWT_EXPIRE_HOURS: "72"
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_PASSWORD: admin123
+
+    ports:
+      - "8080:8080"
+    command: ["/booking-app"]
+
+volumes:
+  db-data:
